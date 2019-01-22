@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1377712738 source:c:\users\tuhin\desktop\tuhin\tdac\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstdlib>
+	<iomanip>
+	<cstring>
+

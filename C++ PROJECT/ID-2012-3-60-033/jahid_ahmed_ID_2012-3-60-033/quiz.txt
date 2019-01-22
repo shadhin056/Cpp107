@@ -1,0 +1,30 @@
+1.When computer was first invented?
+a.1822
+b.1823
+c.1834
+d.1922
+a
+2.Input/output function prototypes and macros are defined in which header file?
+a.conio.h	
+b.stdlib.h
+c.stdio.h
+d.dos.h
+c
+3.A special member function whose task is to initialize the objects of its class is called as ...
+a.Loop
+b.constructor
+c.inheritance
+d.polymorphism
+b
+4.What is the meaning of " ios::in " in c++?
+a.open file for writing only
+b.delete the contents of the file
+c.append to end of the file
+d.open file for reading only
+d
+5.To print something we should use which symbol after "cout" keyword/
+a." ++ "
+b." == "
+c." << "
+d." != "
+c

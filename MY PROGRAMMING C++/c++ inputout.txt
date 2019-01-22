@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+
+class Rokon
+{
+    //private:
+        int a,b;
+    public:
+       void input()
+        {
+            cin >>a>>b;
+        }
+        void output()
+
+        {
+            cout <<a<<b;
+        }
+}R;
+int main()
+{
+    R.input();
+    R.output();
+}
+********************************
+
+#include<iostream>
+using namespace std;
+
+class Rokon
+{
+    //private:
+        int a,b;
+    public:
+        input()
+        {
+            cin >>a>>b;
+        }
+        output()
+
+        {
+            cout <<a<<b;
+        }
+}R;
+int main()
+{
+    R.input();
+    R.output();
+}
+
+*******************************
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    cout<<"a="<<a<<"\nb="<<b;
+    cout<<"fjkfjkdjfdkjfkjfk";
+    return 0;
+}

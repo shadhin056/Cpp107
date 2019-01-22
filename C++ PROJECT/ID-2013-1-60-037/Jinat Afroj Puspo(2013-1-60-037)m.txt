@@ -1,0 +1,362 @@
+//Car Parking Management
+//Jinat Afroj Puspo
+//Id:2013-1-60-037
+//section : 02
+
+
+
+#include <iostream> //c++ header file
+#include <string.h> //character of array
+#include <fstream>  //using file
+
+
+using namespace std;
+
+ofstream outfile ("parking.txt", ios::out| ios::app);
+ifstream infile ("parking.txt", ios::in);
+
+//----------------------------------------------------------------------------
+//-----------------------------Driver Class-----------------------------------
+
+class Driver
+{
+private:
+    char name[20];
+public:
+    Driver();
+    Driver(char nam[20]);
+    void input_data();
+    void input_data(char nam[]);
+    void show_data();
+    char* get_name();
+
+    void write_file();
+
+};
+
+Driver::Driver()
+{
+
+}
+Driver::Driver(char nam[])
+{
+    strcpy(name,nam);
+}
+
+void Driver::input_data(char nam[])
+{
+    strcpy(name,nam);
+
+
+}
+void Driver::input_data()
+{
+    cout << "\n\tEnter Driver Name      : ";
+    char gr=getchar();
+    gets(name);
+
+}
+
+void Driver::show_data()
+{
+    cout << "\n\tDriver Name        : " << name;
+
+}
+char* Driver::get_name()
+{
+    return name;
+}
+
+void Driver::write_file()
+{
+    outfile << "\n\tDriver Name        : " << name;
+}
+
+
+
+//-----------------------------------------------------------------------------
+//--------------------------------Car class------------------------------------
+class Car
+{
+private:
+    char id[20];
+    char type;
+
+public:
+    Car();
+    Car(char i[],char typ);
+    void input_data();
+    void input_data(char i[],char typ);
+    void show_data();
+    char* get_id();
+    char get_type();
+
+    void write_file();
+
+};
+
+Car::Car()
+{
+
+}
+Car::Car(char i[],char typ)
+{
+    strcpy(id,i);
+    type=typ;
+
+}
+void Car::input_data(char i[],char typ)
+{
+    strcpy(id,i);
+    type=typ;
+
+}
+void Car::input_data()
+{
+    cout << "\n\tEnter Car ID           : ";
+    gets(id);
+    cout << "\n\tEnter Car type(b,s)    : ";
+    cin >> type;
+
+}
+
+void Car::show_data()
+{
+    cout << "\n\tCar ID             : " << id;
+    cout << "\n\tCar type           : " << type;
+}
+char* Car::get_id()
+{
+    return id;
+}
+char Car::get_type()
+{
+    return type;
+}
+
+void Car::write_file()
+{
+    outfile << "\n\tCar ID             : " << id;
+    outfile << "\n\tCar type           : " << type;
+}
+
+
+
+//-----------------------------------------------------------------------------
+
+
+
+
+//-----------------------------------------------------------------------------
+//---------------------------Parking Class-------------------------------------
+class Parking
+{
+private:
+    Car cob;
+    Driver dob;
+
+    int hour;
+    int charge;
+    int small_charge;
+    int big_charge;
+    char pay_status;
+
+
+public:
+    Parking();
+    void input_data();
+    void show_data();
+    void cal_charge();
+    void payment();
+
+    int get_hour();
+    int get_charge();
+    char get_pay_status();
+
+    void write_file();
+    void read_file();
+
+
+};
+
+Parking::Parking()
+{
+    pay_status='N';
+    small_charge=50;
+    big_charge=100;
+    charge=0;
+    hour=0;
+
+}
+
+void Parking::input_data()
+{
+    cout << "\n\tEnter Car info";
+    cout << "\n\t--------------------------------" << endl;
+    dob.input_data();
+    cob.input_data();
+    cout << "\n\tEnter time in hour     : ";
+    cin >> hour;
+}
+void Parking::show_data()
+{
+    cout << "\n\tCar info";
+    cout << "\n\t--------------------------------" << endl;
+    dob.show_data();
+    cob.show_data();
+    cout << "\n\tTime in hour       : " << hour;
+    cout << "\n\tTotal Charge       : " << charge;
+    cout << "\n\tPayment Status     : " << pay_status;
+
+}
+int Parking::get_hour()
+{
+    return hour;
+}
+int Parking::get_charge()
+{
+    return charge;
+}
+char Parking::get_pay_status()
+{
+    return pay_status;
+}
+
+
+void Parking::cal_charge()
+{
+    char ch;
+    ch = cob.get_type();
+
+    if(ch=='b')
+    {
+        charge= hour*big_charge;
+    }
+    if(ch=='s')
+    {
+        charge= hour*small_charge;
+    }
+
+}
+void Parking::payment()
+{
+    int t;
+    do
+    {
+        cout << "\n\tPlease Pay amount " << charge << " BDT Only : ";
+        cin >> t;
+    }while(t!=charge);
+    pay_status= 'Y';
+    cout << "\n\n\n\t\t\t\tThank You for your corporation!!!\n\n\n\n";
+
+}
+void Parking::write_file()
+{
+    outfile << "\n\tCar info";
+    outfile << "\n\t--------------------------------" << endl;
+    dob.write_file();
+    cob.write_file();
+    outfile << "\n\tTime in hour       : " << hour;
+    outfile << "\n\tTotal Charge       : " << charge;
+    outfile << "\n\tPayment Status     : " << pay_status;
+}
+void Parking::read_file()
+{
+    cout << infile.rdbuf();
+}
+
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+//---------------------------main function-------------------------------------
+
+int main()
+{
+    Parking pob;
+    int choise;
+
+    while(1)
+    {
+
+        cout << "\n\t************************************************";
+        cout << "\n\t\t        Choose Your Option";
+        cout << "\n\t\t    1.For parking car entry Your Info";
+        cout << "\n\t\t    2.Show entry Info";
+        cout << "\n\t\t    0.EXIT!!";
+        cout << "\n\t************************************************";
+
+
+        cin >> choise;
+
+
+
+        switch(choise)
+        {
+        case 1:
+            pob.input_data();
+            pob.cal_charge();
+            pob.show_data();
+            cout << "\n\t--------------------------------" << endl;
+            pob.payment();
+            pob.write_file();
+            break;
+
+        case 2:
+            pob.read_file();
+            break;
+
+        }
+
+        if(choise==0)
+            break;
+
+        cout << "\n\tPress any key for menu: ";
+            }
+
+    return 0;
+
+}
+
+
+
+//*********************************
+/*parking.text
+
+Car info
+	--------------------------------
+
+	Driver Name        : Ramjan
+	Car ID             : 1
+	Car type           : b
+	Time in hour       : 1
+	Total Charge       : 100
+	Payment Status     : Y
+	Car info
+	--------------------------------
+
+	Driver Name        : Mahbub
+	Car ID             : 2
+	Car type           : s
+	Time in hour       : 2
+	Total Charge       : 100
+	Payment Status     : Y
+	Car info
+	--------------------------------
+
+	Driver Name        : Rahul
+	Car ID             : 3
+	Car type           : s
+	Time in hour       : 1
+	Total Charge       : 50
+	Payment Status     : Y
+	Car info
+	--------------------------------
+
+	Driver Name        : Ebrahim
+	Car ID             : 4
+	Car type           : b
+	Time in hour       : 5
+	Total Charge       : 500
+	Payment Status     : Y*/
+
+//	************************************

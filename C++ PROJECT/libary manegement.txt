@@ -1,0 +1,191 @@
+// shadia islam 
+//roll : 2013-1-60-047
+//section : 1
+//libary manegement
+
+
+#include<iostream>
+#include<cstdio>
+#define l 50
+
+using namespace std;
+
+
+char gr;
+int total_book;
+
+class book_class
+{
+private:
+    int book_id;
+    string book_title;
+    int book_edition;
+    string book_author;
+    string book_publisher;
+    int book_available;
+
+public:
+    void book_entry (int i);
+    void book_search_issue();
+    void book_update();
+
+} book[15];
+
+
+
+int main()
+{
+    int a,i=0;
+
+    while(1)
+    {
+        cout << "\n\n\n\n";
+        cout << "\t                                             \n";
+        cout << "\t  1.Press 1 to entry new book information.   \n";
+        cout << "\t  2.Press 2 to search your book.              \n";
+        cout << "\t  3.Press 3 to updating book edition.        \n";
+        cout << "\t  4.Press 4 to EXIT                          \n";
+        cout << "\t                                             \n";
+        cout << "\t\n";
+        cout << "\n                What do you want?(1,2,3,4): ";
+
+        cin >> a;
+
+
+        while(a<1||a>4)
+        {
+            cout << "\n\tYour entry was invalid\n";
+            cout << "\tPlease select one of the action from the above list: ";
+            cin >> a;
+        }
+
+        switch(a)
+        {
+        case 1:
+            book[i].book_entry (i);
+            i++;
+            total_book=i;
+            break;
+
+        case 2:
+            book[i].book_search_issue();
+            break;
+
+        case 3:
+            book[i].book_update();
+            break;
+        }
+
+        if(a==4)
+            break;
+
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+void book_class::book_entry (int i)
+{
+    using namespace std;
+    book[i].book_id=i+1;
+    gr=getchar();
+    cout << "\n\tBook id           : 0" << book[i].book_id;
+
+    cout << "\n\tEnter title       : ";
+    getline(cin,book[i].book_title);
+
+    cout << "\tEnter edition     : ";
+    cin >> book[i].book_edition;
+    gr=getchar();
+
+    cout << "\tEnter author      : ";
+    getline(cin,book[i].book_author);
+
+    cout << "\tEnter publisher   : ";
+    getline(cin,book[i].book_publisher);
+
+    book[i].book_available=1;
+
+
+    cout << "\n\t\n";
+    cout << "\t   You have successfully entered another book info. \n";
+    cout << "\t\n\n";
+
+}
+
+void book_class::book_search_issue()
+{
+    string search_title;
+    char deci;
+    int i,c=0;
+
+    gr=getchar();
+    cout << "\n\tType your Book title: ";
+    getline(cin,search_title);
+
+    for(i=0; i<total_book; i++)
+    {
+        if(search_title==book[i].book_title)
+        {
+            c++;
+            if(book[i].book_available==1)
+                c++;
+
+            break;
+        }
+    }
+
+    if(c==0)
+        cout << "\n\tSorry!! The Book Is Not In Our Index.\n";
+
+    if(c==1)
+        cout << "\n\tSorry!! The Book Is Not Available Now.Please come later.\n";
+
+    if(c==2)
+    {
+        cout << "\n\n\tIs this your book?";
+        cout << "\n\n";
+        cout << "\n\t    Book ID      : " << book[i].book_id;
+        cout << "\n\t    Title        : " << book[i].book_title;
+        cout << "\n\t    Edition no   : " << book[i].book_edition;
+        cout << "\n\t   Author       : " << book[i].book_author;
+        cout << "\n\t    Publisher    : " << book[i].book_publisher;
+
+        cout << "\n\t\n";
+
+        cout << "\n\tDo your want to issu this book?(y/n): ";
+
+        deci=getchar();
+
+        if(deci=='y'||deci=='Y')
+        {
+            cout << "\n\tYou have issued this book successfully.\n";
+            cout << "\tThank You \n";
+            book[i].book_available=0;
+        }
+        else
+        {
+            cout << "\n\tThank You. See you again.\n";
+        }
+
+    }
+
+}
+
+
+void book_class::book_update()
+{
+    int id;
+    cout << "\n\tEnter Book id   : ";
+    cin >> id;
+    cout << "\n\tUpdate Edition  : ";
+    cin >> book[id-1].book_edition;
+}
+
+
+//

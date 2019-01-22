@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Traveling Agency - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\200F66~1\LOCALS~1\Temp\RSP15A.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/Traveling Agency.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"H:\Project final\Hotel Management for Traveling Agency\Traveling Agency.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\200F66~1\LOCALS~1\Temp\RSP15A.tmp" 
+<h3>Output Window</h3>
+Compiling...
+Traveling Agency.cpp
+h:\project final\hotel management for traveling agency\traveling agency.cpp(60) : error C2057: expected constant expression
+h:\project final\hotel management for traveling agency\traveling agency.cpp(60) : error C2466: cannot allocate an array of constant size 0
+h:\project final\hotel management for traveling agency\traveling agency.cpp(60) : error C2133: 'c' : unknown size
+h:\project final\hotel management for traveling agency\traveling agency.cpp(61) : error C2070: illegal sizeof operand
+h:\project final\hotel management for traveling agency\traveling agency.cpp(62) : error C2374: 'i' : redefinition; multiple initialization
+        h:\project final\hotel management for traveling agency\traveling agency.cpp(51) : see declaration of 'i'
+h:\project final\hotel management for traveling agency\traveling agency.cpp(108) : error C2057: expected constant expression
+h:\project final\hotel management for traveling agency\traveling agency.cpp(108) : error C2466: cannot allocate an array of constant size 0
+h:\project final\hotel management for traveling agency\traveling agency.cpp(108) : error C2133: 'c' : unknown size
+h:\project final\hotel management for traveling agency\traveling agency.cpp(109) : error C2070: illegal sizeof operand
+h:\project final\hotel management for traveling agency\traveling agency.cpp(114) : error C2374: 'i' : redefinition; multiple initialization
+        h:\project final\hotel management for traveling agency\traveling agency.cpp(110) : see declaration of 'i'
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+Traveling Agency.obj - 10 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

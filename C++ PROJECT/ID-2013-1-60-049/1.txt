@@ -1,0 +1,18 @@
+
+
+
+======>PRODUCT DETAILS<======
+
+# product name		     : musa
+
+# product id		     : 1
+
+# percost ofproduct	     : 4
+
+# persell of product	     : 4
+
+# quantity		     : 4
+
+# total cost		     : 16
+
+# total sell		     : 16

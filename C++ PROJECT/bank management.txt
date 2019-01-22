@@ -1,0 +1,264 @@
+// shadia islam 
+//roll : 2013-1-60-047
+//section : 1
+//bank management
+
+
+#include<iostream>
+#include<cstdio>
+#include<string>
+
+
+
+using namespace std;
+
+
+char gr;
+int total_account;
+
+
+
+
+class account_class
+    {
+    private:
+
+        int account_code;
+        string account_name;
+        int depo;
+        int withd;
+        int balance;
+        int loans;
+        int loan_flag;
+        int card_flag;
+
+    public:
+        account_class();
+        ~account_class();
+
+        void f_a_entry (int i);
+        void f_deposit();
+        void f_withdraw();
+        void f_show_account();
+        int  f_a_search();
+        void f_loans();
+        void f_c_card();
+
+
+    }account[150];
+
+
+                //main function start
+int main()
+{
+    int a,i=0;
+
+    while(1)                                                        //action menu start
+    {
+        cout << "\n\n\n\t\n";
+        cout << "\t                                                                \n";
+        cout << "\t  1.Press 1 to add a new account                                \n";
+        cout << "\t  2.Press 2 to deposit money                                    \n";
+        cout << "\t  3.Press 3 to withdraw money                                   \n";
+        cout << "\t  4.Press 4 to show your account                                \n";
+        cout << "\t  5.Press 5 to get loans                                        \n";
+        cout << "\t  6.Press 6 to get credit card                                  \n";
+        cout << "\t  7.Press 7 to EXIT                                             \n";
+        cout << "\t                                                                \n";
+        cout << "\t\n";
+        cout << "\n                What do you want?(1,2,3,4,5,6,7): ";
+
+        cin >> a;
+
+
+        while(a<1||a>7)
+        {
+            cout << "\n\tYour entry was invalid\n";
+            cout << "\tPlease select one of the action from the above list: ";
+            cin >> a;
+        }
+
+        switch(a)
+        {
+            case 1: account[i].f_a_entry (i);
+                    //p_info(i);
+                    i++;
+                    total_account=i;
+                    break;
+
+            case 2: account[i].f_deposit();
+                    break;
+            case 3: account[i].f_withdraw();
+                    break;
+            case 4: account[i].f_show_account();
+                    break;
+            case 5: account[i].f_loans();
+                    break;
+            case 6: account[i].f_c_card();
+                    break;
+
+
+        }
+
+        if(a==7)
+            break;
+
+    }
+
+    return 0;
+}
+
+
+
+
+account_class::account_class()
+{
+    account_code=1000;
+    loans=0;
+    balance=0;
+    loan_flag=0;
+    card_flag=0;
+
+}
+account_class::~account_class()
+{
+
+}
+
+
+
+void account_class::f_a_entry (int i)
+{
+    cout << "\n\t \n";
+    account[i].account_code+=i;
+
+    cout << "\n\t account Code               : " << account[i].account_code;
+
+    gr=getchar();
+
+    cout << "\n\t Enter account holder name  : ";
+    getline(cin,account[i].account_name);
+
+    cout << "\n\t  You have successfully added another account.     \n";
+    cout << "\t \n\n";
+
+}
+
+void account_class::f_deposit()
+{
+    int i,depo;
+    i=f_a_search();
+
+    cout << "\n\t|  Enter deposit ammount   : ";
+    cin >> depo;
+    account[i].depo= depo;
+    account[i].balance += depo;
+
+    cout << "\t\n";
+}
+
+void account_class::f_withdraw()
+{
+    int i,withd;
+    i=f_a_search();
+
+    cout << "\n\t|  Enter withdraw ammount    : ";
+    cin >> withd;
+    cout << "\n";
+
+    account[i].withd= withd;
+
+    account[i].balance -= withd;
+
+}
+
+
+void account_class::f_show_account()
+{
+    int i;
+    i=f_a_search();
+
+    string card_status;
+    if(account[i].card_flag==0)
+        card_status= "Have a Credit Card";
+    else
+        card_status= "No Credit Card";
+
+    cout << "\n\\n";
+    cout << "\n\t";
+    cout << "\n\t  account Code            : " << account[i].account_code;
+    cout << "\n\t  account name            : " << account[i].account_name;
+    cout << "\n\t  Current balance         : " << account[i].balance << "BDT";
+    cout << "\n\t  Last deposit            : " << account[i].depo << "BDT";
+    cout << "\n\t  Last withdraw amount    : " << account[i].withd << "BDT";
+    cout << "\n\t  Loan status             : " << account[i].loans << "BDT";
+    cout << "\n\t  Credit Card status      : " << card_status;
+    cout << "\n\t\n";
+
+}
+
+int account_class::f_a_search()
+{
+    int i;
+    int temp;
+    cout << "\n\t";
+    cout << "\n\t";
+    cout << "\n\t  Enter account code         : ";
+    cin >> temp;
+
+    while(temp<1000)
+    {
+    cout << "\n\t    Your entry was invalid";
+    cout << "\n\t  Please give your account id carefully: ";
+    cin >> temp;
+    }
+
+    for(i=0;i<total_account;i++)
+    {
+        if(temp==account[i].account_code)
+            break;
+    }
+
+
+    return i;
+}
+
+void account_class::f_loans()
+{
+    int i;
+    i=f_a_search();
+
+    if( account[i].balance>=50000)
+    {
+        account[i].loans += account[i].balance*25/100;
+
+        cout << "\n\t  You have successfully got " << account[i].loans << "BDT as loans";
+        account[i].loan_flag=1;
+    }
+    else
+        cout << "\n\t  Sorry You are not allowed to get loans.\n";
+    cout << "\n\t\n";
+
+}
+void account_class::f_c_card()
+{
+    int i;
+    i=f_a_search();
+
+    if (account[i].loan_flag==0)
+    {
+        if(account[i].depo>account[i].withd)
+        {
+            cout << "\n\t  Here is your credit card. Please take this\n";
+            account[i].card_flag=1;  //there is no error
+        }
+    }
+    else
+        cout << "\n\t  Sorry You are not elligible to get credit card.\n";
+    cout << "\n\n";
+
+}
+
+
+
+

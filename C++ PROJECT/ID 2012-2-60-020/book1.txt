@@ -1,0 +1,10 @@
+
+c++                       nita                  107              45
+c                         jal                   205              56
+dis                       azad                  205              63
+cse                       sb                    107              4
+cse                       gita                  107              4
+phy                       dn                    109              5
+cse                       tr                    12               4
+hhh                       nym                   46\              3
+gyy                       ]fft                  34               4

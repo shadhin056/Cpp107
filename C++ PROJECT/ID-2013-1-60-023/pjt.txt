@@ -1,0 +1,4 @@
+Burger 		 1 		 200.00 
+Rice 		 2 		 220.00 
+Chicken 		 3 		 100.00 
+Nuggets 		 4 		 150.00 

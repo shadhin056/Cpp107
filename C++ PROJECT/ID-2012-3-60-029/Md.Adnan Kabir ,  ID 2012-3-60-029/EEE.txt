@@ -1,0 +1,18 @@
+The Books of EEE department are below:
+---------------------------------------
+
+1.Fundamentals of Electric Circuits by Charles K.Alexander & Mathew N.O.Sadiku
+
+2.Electrical technology by B.L.Theraza & A.K.Theraza
+
+3.Microelectronic Circuits by Adel S.Sedra & Kenneth C.Smith
+
+4.Electronic devices and circuits by David A.Bell
+
+5.Digital signal processing by Sanjit K.Mitra
+
+6.Signals and systems by Alan V.Oppenhem,Alan S. Willsky with S.hamid nawab
+
+7.Digital Logic Desgin principles by Norman Balabanian & Bradly Carlson
+
+8.Introduction to VLSI circuits and systems by John Uyemura  

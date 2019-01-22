@@ -1,0 +1,21 @@
+THIS IS SOME BOOKS:
+-------------------
+1.Differential Calculus by B.C.Dash & B.N.Mukherjee
+
+2.Integral Calculus by B.C.Dash & B.N.Mukherjee
+
+3.Differential Equation by Dennis G.zil
+
+4.College Mathematical methods by MD.Abdur rahman
+
+5.Elementary Linear Algebra by Howard Anton
+
+6.Complex variables by Murray R.Spigel
+
+7.Essential of physical chemistry by B.S.Bhal,Arun Bhal & G.D Tuli
+
+8.Organic Chemistry by I.L Finer
+
+9.University Physics by Hugh D.Young
+
+10.Fundamental of Physics by Hugh D.Young 

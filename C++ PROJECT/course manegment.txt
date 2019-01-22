@@ -1,0 +1,221 @@
+// shadia islam 
+//roll : 2013-1-60-047
+//section : 1
+//course manegment
+
+#include<iostream>
+#include<cstdio>
+#include<string>
+#define l 50
+
+using namespace std;
+
+
+char gr;
+int total_course;
+
+
+
+
+class course_class
+{
+private:
+    string course_code;
+    string course_title;
+    int course_credit;
+    string course_instructor;
+    float course_result;
+
+public:
+    void c_entry (int i);
+    void p_info(int i);
+    void i_result();
+    float conv_result(string result);
+    void print_result();
+    float cal_cgpa();
+
+
+} course[15];
+
+
+//main function start
+int main()
+{
+    int a,i=0;
+
+    while(1)
+    {
+        cout << "\n\n\n\t\n";
+        cout << "\t               WELCOME                                           \n\n\n";
+        cout << "\t  1.Press 1 to add a new course.(if you are advisor)              \n";
+        cout << "\t  2.Press 2 to input result.(if you are course instructor)       \n";
+        cout << "\t  3.Press 3 to get your result.(if you are student)              \n";
+        cout << "\t  4.Press 4 to EXIT!!                                            \n";
+        cout << "\t                                                                 \n";
+        cout << "\t\n";
+        cout << "\n                What do you want?(1,2,3,4): ";
+
+        cin >> a;
+
+
+        while(a<1||a>4)
+        {
+            cout << "\n\tYour entry was invalid\n";
+            cout << "\tPlease select one of the action from the above list: ";
+            cin >> a;
+        }
+
+        switch(a)
+        {
+        case 1:
+            course[i].c_entry (i);
+            course[i].p_info(i);
+            i++;
+            total_course=i;
+            break;
+
+        case 2:
+            course[i].i_result();
+            break;
+
+        case 3:
+            course[i].print_result();
+            break;
+        }
+
+        if(a==4)
+            break;
+
+    }
+
+    return 0;
+}
+
+
+
+void course_class::c_entry (int i)
+{
+    gr=getchar();
+    cout << "\n\tEnter course code       : ";
+    getline(cin,course[i].course_code);
+
+    cout << "\tEnter course title      : ";
+    getline(cin,course[i].course_title);
+
+    cout << "\tEnter course credit     : ";
+    cin >> course[i].course_credit;
+
+    gr=getchar();
+    cout << "\tEnter course instructor : ";
+    getline(cin,course[i].course_instructor);
+
+
+
+
+    cout << "\n\t\n";
+    cout << "\t   You have successfully added another course.       \n";
+    cout << "\t \n\n";
+
+}
+
+void course_class::i_result()
+{
+    int i;
+    string temp,result;
+    gr=getchar();
+    cout << "\t\n";
+    cout << "\t     Enter course code      : ";
+    getline(cin,temp);
+
+    cout << "\t     Enter result           : ";
+    getline(cin,result);
+    cout << "\t\n";
+
+    for(i=0; i<total_course; i++)
+    {
+        if(temp==course[i].course_code)
+            break;
+    }
+
+    course[i].course_result=course[i].conv_result(result);
+
+
+
+
+}
+
+float course_class::conv_result(string result)
+{
+    if(result=="A+" || result=="a+")
+        return 4.00;
+    if(result=="A" || result=="a")
+        return 4.00;
+    if(result=="A-" || result=="a-")
+        return 3.70;
+    if(result=="B+" || result=="b+")
+        return 3.30;
+    if(result=="B" || result=="b")
+        return 3.00;
+    if(result=="B-" || result=="b-")
+        return 2.70;
+    if(result=="C+" || result=="c+")
+        return 2.30;
+    if(result=="C" || result=="c")
+        return 2.00;
+    if(result=="C-" || result=="c-")
+        return 1.70;
+    if(result=="D+" || result=="d+")
+        return 1.30;
+    if(result=="D" || result=="d")
+        return 1.00;
+    if(result=="F" || result=="f")
+        return 0.00;
+
+}
+
+void course_class::print_result()                                         //print out the final result
+{
+    int i;
+    cout << "\t \n";
+    cout << "\t Student Name   : Shadia Islam                 \n";
+    cout << "\t Student Id     : 2013-60-047                 \n";
+    cout << "\t  \n";
+
+    for(i=0; i<total_course; i++)
+    {
+        cout << "\t  " << course[i].course_code << "    : " << course[i].course_result << "\n";
+    }
+
+
+    cout << "\n\t  CGPA   : " << cal_cgpa();
+    cout << "\n\t  It's Not bad";
+    cout << "\n\n";
+}
+
+
+float course_class::cal_cgpa()
+{
+    int i;
+    float total_point=0.0,cgpa;
+    int total_credit=0;
+
+    for(i=0; i<total_course; i++)
+    {
+        total_credit += course[i].course_credit;
+        total_point += course[i].course_credit * course[i].course_result;
+
+    }
+
+    return total_point/total_credit;
+
+}
+
+
+void course_class::p_info(int i)
+{
+    cout << "\n\tCourse Code       : " << course[i].course_code;
+    cout << "\n\tCourse title      : " << course[i].course_title;
+    cout << "\n\tCourse Credit     : " << course[i].course_credit;
+    cout << "\n\tCourse Instructor : " << course[i].course_instructor;
+}
+

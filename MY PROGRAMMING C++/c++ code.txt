@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+class person
+{
+    int a,b,c;
+    char d;
+public:
+    void getdata (void)
+    void(void);
+};
+void person ::getdata(void)
+{
+    cir >>a;
+}
+
+void person ::display(void)
+{
+    if(a%2==0)
+    {
+        d='j'
+        c=a/2;
+        b=c;
+    }
+else
+{
+    d='v'
+    c=a/2
+    b=c+1;
+}
+    cout <<"\n last woman bond with birthday girl";
+    cout<<d<<"uma\n";
+    cout "total ruma :<<b;
+    cout <<"\n and juma :<<c;
+    cout <<"\n";
+}
+int min()
+{
+    person p;
+    p.getdata ()
+    p.display();
+    return 0;
+}

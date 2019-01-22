@@ -1,0 +1,30 @@
+Radisson Water Garden Hotel
+1231001
+20
+The Westin
+1231002
+15
+Pan Pacific Sonargaon Hotel
+1231003
+15
+Platinum Suites
+1231004
+12
+Ruposhi Bangla Hotel
+1231005
+12
+Hotel Purbani InLtd
+1231006
+15
+Dhaka Regency Hotel Resort
+1231007
+15
+Hotel Orchard Plaza
+1231008
+10
+Hotel Sarina
+1231009
+12
+Parjatan Motel Kazihata
+1231010
+8

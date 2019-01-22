@@ -1,0 +1,25 @@
+The Books of CSE department are below:
+---------------------------------------
+1.Structured programming with C by E Balagurusamy
+
+2.Teach yourself C by Herbert Schieldt
+
+3.Object oriented programming with C++ by E Balagurusamy
+
+4.Teach yourself C++ by Herbert Schieldt
+
+5.Discreete mathematics and its application by Kenneth H Rosen
+
+6.Numarical methods for mathematics science and engineering
+
+7.Thinking in Java by by Bruce Eckel
+
+8.Algorithms in C++ by Robert Sedgewick
+
+9.Data structures by Richard F.Gilberg & Behrouz A. Forouzan
+
+10.Data Communications and Networking by Behrouz A.Forouzan
+
+11.Computer architecture by William Stallings
+
+12.Software engineering by Roges S.Pressman 
